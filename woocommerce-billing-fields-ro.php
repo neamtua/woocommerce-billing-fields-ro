@@ -3,7 +3,7 @@
 Plugin Name: WooCommerce Romanian Billing fields
 Plugin URI: https://github.com/neamtua/woocommerce-billing-fields-ro
 Description: This is a WooCommerce plugin that adds extra fields to the billing address containing required information by romanian law (CUI, numar de inregistrare la registrul comertului, cont bancar, banca)
-Version: 1.0.2
+Version: 1.0.3
 Author: Andrei Neamtu
 Author URI: https://ameya.ro
 */
@@ -65,7 +65,7 @@ function woocommerce_billing_fields_ro_load()
             global $woocommerce;
 
             // Check if set, if its not set add an error. This one is only required for companies
-            if (isset($_POST['billing_company'])) {
+            if (isset($_POST['billing_company']) && !empty($_POST['billing_company'])) {
                 if (empty($_POST['wbfr_cif']) ||
                     empty($_POST['wbfr_regcom']) ||
                     empty($_POST['wbfr_cont_banca']) ||
